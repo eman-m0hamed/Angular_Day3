@@ -1,0 +1,26 @@
+<div class="card " >
+    <img src="{{myProduct?.imgurl}}" class="card-img-top" alt="...">
+    <div class="card-body ">
+      <h5 class="card-title">{{myProduct?.productname}}</h5>
+      <p class="card-text fw-bold"><span class="text-danger">Price:</span> {{myProduct?.price | currency}}</p>
+      <div [ngSwitch]="myProduct?.quantity">
+        <p  class="text-danger fw-bold" *ngSwitchCase="0" >
+            Product isn't available
+        </p>
+        <p *ngSwitchCase="1" class="text-danger fw-bold">
+           only one piece
+        </p>
+        <p *ngSwitchDefault>
+            Quantity: <strong>{{myProduct?.quantity}}</strong>
+        </p>
+      </div>
+      <a 
+      [ngClass]="{
+        btn : true ,
+        'btn-primary': myProduct?.quantity != 0 ,
+        'text-danger fw-bold': myProduct?.quantity == 0 
+    }">
+        {{ myProduct?.quantity ===0 ? "Solid out" : "Buy"}}
+    </a>
+    </div>
+  </div>

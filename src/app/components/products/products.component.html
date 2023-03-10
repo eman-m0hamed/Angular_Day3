@@ -1,0 +1,7 @@
+<div class="container text-center ">
+    <h2 class="m-3">All Products</h2>
+    <div class="d-flex justify-content-center gap-5 flex-wrap mb-5">
+          <app-product-item class="p-2 productContainer" *ngFor="let product of products" [myProduct]="product" />
+    </div>
+
+</div>
